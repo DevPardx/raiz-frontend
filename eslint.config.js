@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 
 export default [
   {
-    ignores: ['dist', 'src/__tests__'],
+    ignores: ['dist', 'src/__tests__', 'src/routes/__root.tsx'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
