@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+    --font-rubik: "Rubik", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Rubik Light */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Rubik Regular */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Rubik Medium */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Rubik Semibold */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Rubik Bold */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Rubik Extrabold */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Rubik Black */
+@font-face {
+    font-family: "Rubik";
+    src: url("/public/fonts/Rubik-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@layer utilities {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+     /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+    }
+}
