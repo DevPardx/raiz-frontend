@@ -1,5 +1,5 @@
 import RegisterForm from "@/components/forms/auth/RegisterForm";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export default function RegisterView() {
     const { t } = useTranslation();
@@ -12,5 +12,5 @@ export default function RegisterView() {
             </div>
             <RegisterForm />
         </div>
-    )
+    );
 }

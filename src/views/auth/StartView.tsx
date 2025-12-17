@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export default function StartView() {
     const { t } = useTranslation();
@@ -26,5 +26,5 @@ export default function StartView() {
                 </Link>
             </div>
         </>
-    )
+    );
 }

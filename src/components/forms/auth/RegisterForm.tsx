@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { User, Envelope, LockKey, HouseLine, Building, Eye, EyeSlash } from "@phosphor-icons/react"
+import { User, Envelope, LockKey, HouseLine, Building, Eye, EyeSlash } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
-import type { Role } from "@/types"
+import type { Role } from "@/types";
 import { useTranslation } from "react-i18next";
 
 export default function RegisterForm() {
@@ -108,5 +108,5 @@ export default function RegisterForm() {
                 <p className="text-neutral-400">{ t("register_form_have_account") } <Link to="/login" className="text-white">{ t("sign_in") }</Link></p>
             </div>
         </form>
-    )
+    );
 }

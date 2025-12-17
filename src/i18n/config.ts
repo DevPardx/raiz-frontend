@@ -17,11 +17,11 @@ i18n
       }
     },
     supportedLngs: ["es", "en"],
-    fallbackLng: "en",
+    fallbackLng: "es",
     nonExplicitSupportedLngs: true,
     detection: {
-      order: ['navigator', 'htmlTag', 'localStorage', 'sessionStorage'],
-      caches: ['localStorage']
+      order: ["navigator", "htmlTag", "localStorage", "sessionStorage"],
+      caches: ["localStorage"]
     },
     interpolation: {
       escapeValue: false
