@@ -1,4 +1,19 @@
 {
-  "welcome": "Bienvenido",
-  "hello": "Hola"
+  "sign_in": "Iniciar Sesión",
+  "create_account": "Crear Cuenta",
+
+  "start_title": "Bienvenido a Raíz",
+  "start_subtitle": "Tu socio de confianza en el sector inmobiliario",
+
+  "register_title": "Crea tu cuenta",
+  "register_subtitle": "Únete a Raíz y comienza tu viaje inmobiliario",
+  "register_form_name_label": "Nombre",
+  "register_form_email_label": "Correo",
+  "register_form_email_placeholder": "correo@ejemplo.com",
+  "register_form_password_label": "Contraseña",
+  "register_form_password_placeholder": "••••••••",
+  "register_form_role_label": "Soy un",
+  "register_form_buyer_button": "Comprador",
+  "register_form_seller_button": "Vendedor",
+  "register_form_have_account": "Ya tienes una cuenta?"
 }

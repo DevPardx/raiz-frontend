@@ -1,3 +1,4 @@
+import RegisterView from "@/views/auth/RegisterView";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(auth)/register")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/(auth)/register")({
 });
 
 function RouteComponent() {
-  return <div>Hello "/(auth)/register"!</div>;
+  return <RegisterView />;
 }

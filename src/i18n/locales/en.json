@@ -1,4 +1,19 @@
 {
-  "welcome": "Welcome",
-  "hello": "Hello"
+  "sign_in": "Sign in",
+  "create_account": "Create Account",
+
+  "start_title": "Welcome to Raíz",
+  "start_subtitle": "Your trusted partner in real estate",
+
+  "register_title": "Create your account",
+  "register_subtitle": "Join Raíz and start your real estate journey",
+  "register_form_name_label": "Name",
+  "register_form_email_label": "Email",
+  "register_form_email_placeholder": "you@example.com",
+  "register_form_password_label": "Password",
+  "register_form_password_placeholder": "••••••••",
+  "register_form_role_label": "I am a",
+  "register_form_buyer_button": "Buyer",
+  "register_form_seller_button": "Seller",
+  "register_form_have_account": "Already have an account?"
 }
