@@ -11,9 +11,15 @@
   "register_form_email_label": "Correo",
   "register_form_email_placeholder": "correo@ejemplo.com",
   "register_form_password_label": "Contraseña",
-  "register_form_password_placeholder": "••••••••",
   "register_form_role_label": "Soy un",
   "register_form_buyer_button": "Comprador",
   "register_form_seller_button": "Vendedor",
-  "register_form_have_account": "Ya tienes una cuenta?"
+  "register_form_have_account": "Ya tienes una cuenta?",
+  "register_form_name_required": "Tu nombre es requerido.",
+  "register_form_email_required": "Tu email es requerido.",
+  "register_form_email_invalid": "Correo no válido.",
+  "register_form_password_required": "La contraseña es requerida.",
+  "register_form_password_minlength": "La contraseña debe contener al menos 8 caracteres.",
+  "register_error": "Error al crear cuenta, intentalo de nuevo."
+
 }
