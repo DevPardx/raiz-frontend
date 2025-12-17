@@ -14,7 +14,7 @@ export default function StartView() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-7">
                 <Link
                     to="/login"
-                    className="px-8 py-3 bg-white text-neutral-900 rounded-lg font-medium hover:bg-neutral-200 transition-colors"
+                    className="px-8 py-3 border border-neutral-300 dark:border-none dark:bg-white text-neutral-900 rounded-lg font-medium hover:bg-neutral-200 transition-colors"
                 >
                     { t("sign_in") }
                 </Link>
