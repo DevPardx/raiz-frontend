@@ -20,5 +20,11 @@
   "register_form_email_invalid": "Not a valid email address.",
   "register_form_password_required": "The password is required.",
   "register_form_password_minlength": "The password must contain at least 8 characters.",
-  "register_error": "Error creating account, try again."
+  "register_error": "Error creating account, try again.",
+
+  "error_boundary_title": "Something went wrong",
+  "error_boundary_description": "We're sorry, an unexpected error has occurred. Please try again.",
+  "error_boundary_details": "Error details",
+  "error_boundary_try_again": "Try again",
+  "error_boundary_go_home": "Go to home"
 }

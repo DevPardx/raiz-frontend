@@ -20,6 +20,11 @@
   "register_form_email_invalid": "Correo no válido.",
   "register_form_password_required": "La contraseña es requerida.",
   "register_form_password_minlength": "La contraseña debe contener al menos 8 caracteres.",
-  "register_error": "Error al crear cuenta, intentalo de nuevo."
+  "register_error": "Error al crear cuenta, intentalo de nuevo.",
 
+  "error_boundary_title": "Algo salió mal",
+  "error_boundary_description": "Lo sentimos, ha ocurrido un error inesperado. Por favor, intenta de nuevo.",
+  "error_boundary_details": "Detalles del error",
+  "error_boundary_try_again": "Intentar de nuevo",
+  "error_boundary_go_home": "Volver al inicio"
 }
