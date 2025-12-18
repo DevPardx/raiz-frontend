@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { UserIcon, EnvelopeIcon, LockKeyIcon, HouseLineIcon, BuildingIcon, EyeIcon, EyeSlashIcon, WarningCircleIcon } from "@phosphor-icons/react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import type { RegisterForm, Role } from "@/types";
 import ErrorMessage from "@/components/atoms/ErrorMessage";
+import Spinner from "@/components/atoms/Spinner";
 import { useRegisterMutation } from "@/hooks/mutations/useAuthMutations";
-import { toast } from "sonner";
 
 export default function RegisterForm() {
     const { t } = useTranslation();
+    const router = useRouter();
     const { register, formState: { errors }, handleSubmit, reset } = useForm<RegisterForm>();
     const [selectedRole, setSelectedRole] = useState<Role | null>(null);
     const [showPassword, setShowPassword] = useState(false);
-    const { mutate } = useRegisterMutation();
+    const { mutate, isPending } = useRegisterMutation();
 
     const handleRegister = async (formData: RegisterForm) => {
         const data = {
@@ -21,12 +23,13 @@ export default function RegisterForm() {
             role: selectedRole!
         };
 
-        console.log(data);
-
         mutate(data, {
-            onSuccess: (data) => {
-                toast.success(data);
+            onSuccess: (info) => {
+                toast.success(info);
+                localStorage.setItem("pendingVerificationEmail", data.email);
                 reset();
+                setSelectedRole(null);
+                router.navigate({ to: "/verify-account" });
             },
             onError: (error) => {
                 toast.error(error.message);
@@ -134,12 +137,14 @@ export default function RegisterForm() {
                 </div>
             </div>
 
-            <input
+            <button
                 type="submit"
-                value={ t("create_account") }
-                className={`text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm mt-5  transition-colors ease-in-out duration-300 ${selectedRole === null ? "hover:cursor-not-allowed bg-neutral-400" : "hover:cursor-pointer bg-neutral-700 dark:bg-white hover:bg-neutral-800 dark:hover:bg-white"}`}
+                className={`text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm mt-5  transition-colors ease-in-out duration-300 flex items-center justify-center gap-5 ${selectedRole === null ? "hover:cursor-not-allowed bg-neutral-400" : "hover:cursor-pointer bg-neutral-700 dark:bg-white hover:bg-neutral-800 dark:hover:bg-white"}`}
                 disabled={ selectedRole === null }
-            />
+            >
+                { t("create_account") }
+                { isPending && <Spinner /> }
+            </button>
 
             <div className="flex items-center justify-center text-sm">
                 <p className="dark:text-neutral-400 text-neutral-600">{ t("register_form_have_account") } <Link to="/login" className="dark:text-white text-black">{ t("sign_in") }</Link></p>

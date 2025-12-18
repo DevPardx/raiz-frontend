@@ -6,3 +6,8 @@ export type RegisterForm = {
     password: string;
     role: Role
 }
+
+export type VerifyAccountForm = {
+    email: string;
+    token: string;
+}

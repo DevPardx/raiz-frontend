@@ -21,6 +21,23 @@
   "register_form_password_required": "The password is required.",
   "register_form_password_minlength": "The password must contain at least 8 characters.",
   "register_error": "Error creating account, try again.",
+  
+  "verify_account_title": "Verify your email",
+  "verify_account_subtitle": "Enter the 6-digit code sent to your email",
+  "verify_account_button": "Verify Account",
+  "verify_account_verifying": "Verifying...",
+  "verify_account_desc": "Didn't received the code?",
+  "verify_account_link": "Resend code",
+  "verify_account_error": "Error verifying your account, try again.",
+  "verify_account_missing_data": "Please enter the verification code and your email.",
+
+  "resend_code_enter_email": "Enter your email to resend the code",
+  "resend_code_email_helper": "We'll send a new verification code to this email.",
+  "resend_code_sent_to": "Code will be sent to",
+  "resend_code_change_email": "Change email",
+  "resend_code_success": "Code sent successfully",
+  "resend_code_error": "Error resending code",
+  "resend_code_invalid_email_format": "Please enter a valid email",
 
   "error_boundary_title": "Something went wrong",
   "error_boundary_description": "We're sorry, an unexpected error has occurred. Please try again.",
