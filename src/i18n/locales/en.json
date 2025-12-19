@@ -1,16 +1,26 @@
 {
   "sign_in": "Sign in",
   "create_account": "Create Account",
+  "email": "Email",
+  "password": "Password",
+
+  "invalid_data_format": "Invalid data format",
+  "session_expired": "Session expired",
+  "logout_error": "Error during logout",
 
   "start_title": "Welcome to Raíz",
   "start_subtitle": "Your trusted partner in real estate",
 
+  "error_boundary_title": "Something went wrong",
+  "error_boundary_description": "We're sorry, an unexpected error has occurred. Please try again.",
+  "error_boundary_details": "Error details",
+  "error_boundary_try_again": "Try again",
+  "error_boundary_go_home": "Go to home",
+
   "register_title": "Create your account",
   "register_subtitle": "Join Raíz and start your real estate journey",
   "register_form_name_label": "Name",
-  "register_form_email_label": "Email",
   "register_form_email_placeholder": "you@example.com",
-  "register_form_password_label": "Password",
   "register_form_role_label": "I am a",
   "register_form_buyer_button": "Buyer",
   "register_form_seller_button": "Seller",
@@ -40,9 +50,11 @@
   "resend_code_invalid_email_format": "Please enter a valid email",
   "resend_code_cooldown": "Wait {{seconds}}s to resend",
 
-  "error_boundary_title": "Something went wrong",
-  "error_boundary_description": "We're sorry, an unexpected error has occurred. Please try again.",
-  "error_boundary_details": "Error details",
-  "error_boundary_try_again": "Try again",
-  "error_boundary_go_home": "Go to home"
+  "login_title": "Welcome Back",
+  "login_subtitle": "Sign in to your Raíz account",
+  "login_form_forgot_password": "Forgot password?",
+  "login_form_have_account": "Don't have an account?",
+  "login_form_create_account": "Create one",
+  "login_success": "Welcome back!",
+  "login_error": "Error logging into your account"
 }

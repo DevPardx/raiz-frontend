@@ -1,3 +1,4 @@
+import LoginView from "@/views/auth/LoginView";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(auth)/login")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/(auth)/login")({
 });
 
 function RouteComponent() {
-  return <div>Hello "/(auth)/login"!</div>;
+  return <LoginView />;
 }

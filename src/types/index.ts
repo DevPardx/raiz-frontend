@@ -7,6 +7,8 @@ export type RegisterForm = {
     role: Role
 }
 
+export type LoginForm = Pick<RegisterForm, "email" | "password">
+
 export type VerifyAccountForm = {
     email: string;
     token: string;

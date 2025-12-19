@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as authRouteRouteImport } from './routes/(auth)/route'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as authVerifyAccountRouteImport } from './routes/(auth)/verify-account'
 import { Route as authStartRouteImport } from './routes/(auth)/start'
 import { Route as authResetPasswordRouteImport } from './routes/(auth)/reset-password'
@@ -19,6 +20,11 @@ import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-p
 
 const authRouteRoute = authRouteRouteImport.update({
   id: '/(auth)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const authVerifyAccountRoute = authVerifyAccountRouteImport.update({
@@ -53,6 +59,7 @@ const authForgotPasswordRoute = authForgotPasswordRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/forgot-password': typeof authForgotPasswordRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
@@ -61,6 +68,7 @@ export interface FileRoutesByFullPath {
   '/verify-account': typeof authVerifyAccountRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/forgot-password': typeof authForgotPasswordRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
@@ -70,6 +78,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/(auth)': typeof authRouteRouteWithChildren
   '/(auth)/forgot-password': typeof authForgotPasswordRoute
   '/(auth)/login': typeof authLoginRoute
@@ -81,6 +90,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/forgot-password'
     | '/login'
     | '/register'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/verify-account'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/forgot-password'
     | '/login'
     | '/register'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/verify-account'
   id:
     | '__root__'
+    | '/'
     | '/(auth)'
     | '/(auth)/forgot-password'
     | '/(auth)/login'
@@ -107,6 +119,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   authRouteRoute: typeof authRouteRouteWithChildren
 }
 
@@ -117,6 +130,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: ''
       preLoaderRoute: typeof authRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)/verify-account': {
@@ -187,6 +207,7 @@ const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   authRouteRoute: authRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
