@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   InputOTP,
   InputOTPGroup,
@@ -26,9 +26,19 @@ export default function VerifyAccountForm() {
     const [hasValidCode, setHasValidCode] = useState(() => {
         return !!localStorage.getItem("pendingVerificationEmail");
     });
+    const [cooldown, setCooldown] = useState(0);
 
     const { mutate: verifyMutate, isPending: isVerifying } = useVerifyAccountMutation();
     const { mutate: resendMutate, isPending: isResending } = useResendCodeMutation();
+
+    useEffect(() => {
+        if (cooldown > 0) {
+            const timer = setTimeout(() => {
+                setCooldown(cooldown - 1);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [cooldown]);
 
     const isValidEmail = (email: string) => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -67,6 +77,7 @@ export default function VerifyAccountForm() {
                 localStorage.setItem("pendingVerificationEmail", email);
                 setShowEmailInput(false);
                 setHasValidCode(true);
+                setCooldown(30); // Iniciar cooldown de 30 segundos
             },
             onError: (error) => {
                 toast.error(error.message);
@@ -95,13 +106,14 @@ export default function VerifyAccountForm() {
                     type="button"
                     onClick={handleVerifyAccount}
                     disabled={code.length !== 6 || email.trim() === "" || !hasValidCode || isVerifying}
-                    className={`text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm transition-colors ease-in-out duration-300 ${
+                    className={`text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm transition-colors ease-in-out duration-300 flex items-center justify-center gap-3 ${
                         code.length !== 6 || email.trim() === "" || !hasValidCode || isVerifying
                             ? "hover:cursor-not-allowed bg-neutral-400"
                             : "hover:cursor-pointer bg-neutral-700 dark:bg-white hover:bg-neutral-800 dark:hover:bg-white"
                     }`}
                 >
-                    {isVerifying ? <Spinner /> : t("verify_account_button")}
+                    { isVerifying && <Spinner /> }
+                    { t("verify_account_button") }
                 </button>
             </div>
 
@@ -150,10 +162,20 @@ export default function VerifyAccountForm() {
                     <button
                         type="button"
                         onClick={handleResendCode}
-                        disabled={isResending || !email}
-                        className={`w-full flex items-center justify-center text-sm hover:underline ${!email ? "hover:cursor-not-allowed" : "hover:cursor-pointer"}`}
+                        disabled={isResending || !email || cooldown > 0}
+                        className={`w-full flex items-center justify-center gap-2 text-sm transition-colors ${
+                            isResending || !email || cooldown > 0
+                                ? "text-neutral-400 dark:text-neutral-600 cursor-not-allowed"
+                                : "text-black dark:text-white hover:underline cursor-pointer"
+                        }`}
                     >
-                        {isResending ? <Spinner /> : t("verify_account_link")}
+                        {isResending ? (
+                            <Spinner />
+                        ) : cooldown > 0 ? (
+                            t("resend_code_cooldown", { seconds: cooldown })
+                        ) : (
+                            t("verify_account_link")
+                        )}
                     </button>
                 </div>
             </div>
