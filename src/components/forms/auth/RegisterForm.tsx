@@ -64,11 +64,12 @@ export default function RegisterForm() {
             </div>
 
             <div className="space-y-2">
-                <label htmlFor="email" className="text-sm">{ t("register_form_email_label") }</label>
+                <label htmlFor="email" className="text-sm">{ t("email") }</label>
                 <div className="mt-2 grid grid-cols-1 relative">
                     <input
                         id="email"
                         type="email"
+                        autoComplete="email"
                         placeholder={ t("register_form_email_placeholder") }
                         className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.email ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
                         { ...register("email", { required: t("register_form_email_required"), pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t("register_form_email_invalid") } }) }
@@ -83,7 +84,7 @@ export default function RegisterForm() {
             </div>
 
             <div className="space-y-2">
-                <label htmlFor="password" className="text-sm">{ t("register_form_password_label") }</label>
+                <label htmlFor="password" className="text-sm">{ t("password") }</label>
                 <div className="relative">
                     <LockKeyIcon
                         aria-hidden="true"
@@ -93,6 +94,7 @@ export default function RegisterForm() {
                         id="password"
                         type={ showPassword ? "text" : "password" }
                         placeholder="••••••••"
+                        autoComplete="new-password"
                         className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.password ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
                         { ...register("password", { required: t("register_form_password_required"), minLength: { value: 8, message: t("register_form_password_minlength") } }) }
                     />
@@ -101,7 +103,7 @@ export default function RegisterForm() {
                     <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 transition-colors"
                     >
                         {showPassword ? <EyeSlashIcon className="size-4" /> : <EyeIcon className="size-4" />}
                     </button>

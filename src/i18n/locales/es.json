@@ -1,20 +1,30 @@
 {
   "sign_in": "Iniciar Sesión",
   "create_account": "Crear Cuenta",
+  "email": "Correo",
+  "password": "Contraseña",
+
+  "invalid_data_format": "Formato de datos no válido",
+  "session_expired": "La sesión ha expirado",
+  "logout_error": "Error al cerrar sesión",
 
   "start_title": "Bienvenido a Raíz",
   "start_subtitle": "Tu socio de confianza en el sector inmobiliario",
 
+  "error_boundary_title": "Algo salió mal",
+  "error_boundary_description": "Lo sentimos, ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.",
+  "error_boundary_details": "Detalles del error",
+  "error_boundary_try_again": "Intentar de nuevo",
+  "error_boundary_go_home": "Volver al inicio",
+
   "register_title": "Crea tu cuenta",
   "register_subtitle": "Únete a Raíz y comienza tu viaje inmobiliario",
   "register_form_name_label": "Nombre",
-  "register_form_email_label": "Correo",
   "register_form_email_placeholder": "correo@ejemplo.com",
-  "register_form_password_label": "Contraseña",
   "register_form_role_label": "Soy un",
   "register_form_buyer_button": "Comprador",
   "register_form_seller_button": "Vendedor",
-  "register_form_have_account": "Ya tienes una cuenta?",
+  "register_form_have_account": "¿Ya tienes una cuenta?",
   "register_form_name_required": "Tu nombre es requerido.",
   "register_form_email_required": "Tu email es requerido.",
   "register_form_email_invalid": "Correo no válido.",
@@ -25,7 +35,7 @@
   "verify_account_title": "Verifica tu correo.",
   "verify_account_subtitle": "Ingresa el código de 6 dígitos enviado a tu correo electrónico",
   "verify_account_button": "Verificar Cuenta",
-  "verify_account_verifying": "Verificando...",
+  "verify_account_verifying": "Verificando",
   "verify_account_desc": "¿No recibiste el código?",
   "verify_account_link": "Reenviar código",
   "verify_account_error": "Error al verificar la cuenta, inténtalo de nuevo.",
@@ -40,9 +50,11 @@
   "resend_code_invalid_email_format": "Por favor ingresa un correo válido",
   "resend_code_cooldown": "Espera {{seconds}}s para reenviar",
 
-  "error_boundary_title": "Algo salió mal",
-  "error_boundary_description": "Lo sentimos, ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.",
-  "error_boundary_details": "Detalles del error",
-  "error_boundary_try_again": "Intentar de nuevo",
-  "error_boundary_go_home": "Volver al inicio"
+  "login_title": "Bienvenido de nuevo",
+  "login_subtitle": "Inicia sesión en tu cuenta de Raíz",
+  "login_form_forgot_password": "¿Olvidaste tu contraseña?",
+  "login_form_have_account": "¿No tienes una cuenta?",
+  "login_form_create_account": "Crea una",
+  "login_success": "¡Bienvenido de nuevo!",
+  "login_error": "Error al iniciar sesión"
 }
