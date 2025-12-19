@@ -38,6 +38,7 @@
   "resend_code_success": "Code sent successfully",
   "resend_code_error": "Error resending code",
   "resend_code_invalid_email_format": "Please enter a valid email",
+  "resend_code_cooldown": "Wait {{seconds}}s to resend",
 
   "error_boundary_title": "Something went wrong",
   "error_boundary_description": "We're sorry, an unexpected error has occurred. Please try again.",
