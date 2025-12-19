@@ -7,6 +7,7 @@
   "invalid_data_format": "Formato de datos no válido",
   "session_expired": "La sesión ha expirado",
   "logout_error": "Error al cerrar sesión",
+  "verify_token_error": "Error al validar token",
 
   "start_title": "Bienvenido a Raíz",
   "start_subtitle": "Tu socio de confianza en el sector inmobiliario",
@@ -55,6 +56,24 @@
   "login_form_forgot_password": "¿Olvidaste tu contraseña?",
   "login_form_have_account": "¿No tienes una cuenta?",
   "login_form_create_account": "Crea una",
-  "login_success": "¡Bienvenido de nuevo!",
-  "login_error": "Error al iniciar sesión"
+  "login_error": "Error al iniciar sesión",
+
+  "forgot_password_title": "¿Olvidaste tu contraseña?",
+  "forgot_password_subtitle": "No te preocupes, te enviaremos instrucciones para restablecerlas",
+  "forgot_password_button": "Enviar enlace de reinicio",
+  "forgot_password_back_to_sign_in": "Volver para iniciar sesión",
+  "forgot_password_sucess_message_1": "Hemos enviado un correo electrónico a",
+  "forgot_password_sucess_message_2": "con un enlace para restablecer su contraseña",
+  "forgot_password_resend_email": "¿No recibiste el correo electrónico?",
+  "forgot_password_try_again": "Inténtalo de nuevo",
+  "forgot_password_error": "Error al reestablecer contraseña",
+
+  "reset_password_title": "Reestablece tu contraseña",
+  "reset_password_subtitle": "Ingrese su nueva contraseña a continuación",
+  "reset_password_form_new_password_label": "Nueva Contraseña",
+  "reset_passwod_form_confirm_password_label": "Confirmar Contraseña",
+  "reset_password_not_match": "Las contraseñas no coinciden",
+  "reset_password_form_button": "Reestablecer contraseña",
+  "reset_password_error": "Error al reestablecer contraseña"
 }
+ 

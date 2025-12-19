@@ -1,4 +1,4 @@
-import { register, verifyAccount, resendVerificationCode, login, logout } from "@/api/auth";
+import { register, verifyAccount, resendVerificationCode, login, logout, forgotPassword, resetPassword } from "@/api/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
 
@@ -32,8 +32,19 @@ export const useLogoutMutation = () => {
     return useMutation({
         mutationFn: logout,
         onSuccess: () => {
-            // Redirigir al login después del logout
             router.navigate({ to: "/login" });
         }
+    });
+};
+
+export const useForgotPasswordMutation = () => {
+    return useMutation({
+        mutationFn: forgotPassword
+    });
+};
+
+export const useResetPasswordMutation = () => {
+    return useMutation({
+        mutationFn: resetPassword
     });
 };

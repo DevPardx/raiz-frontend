@@ -19,7 +19,6 @@ export default function LoginForm() {
     const handleLogin = async (formData: LoginForm) => {
         mutate(formData, {
             onSuccess: () => {
-                toast.success(t("login_success"));
                 reset();
                 router.navigate({ to: "/" });
             },
@@ -42,7 +41,7 @@ export default function LoginForm() {
                         type="email"
                         placeholder={ t("register_form_email_placeholder") }
                         autoComplete="email"
-                        className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.email ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
+                        className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base dark:text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.email ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
                         { ...register("email", { required: t("register_form_email_required"), pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t("register_form_email_invalid") } }) }
                     />
                     <EnvelopeIcon
@@ -55,7 +54,10 @@ export default function LoginForm() {
             </div>
 
             <div className="space-y-2">
-                <label htmlFor="password" className="text-sm">{ t("password") }</label>
+                <div className="flex items-center justify-between">
+                    <label htmlFor="password" className="text-sm">{ t("password") }</label>
+                    <Link className="text-xs dark:text-neutral-400 dark:hover:text-white hover:text-neutral-600 transition-colors ease-in-out duration-300" to="/forgot-password">{ t("login_form_forgot_password") }</Link>
+                </div>
                 <div className="relative">
                     <LockKeyIcon
                         aria-hidden="true"
@@ -66,7 +68,7 @@ export default function LoginForm() {
                         type={ showPassword ? "text" : "password" }
                         placeholder="••••••••"
                         autoComplete="current-password"
-                        className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.password ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
+                        className={`col-start-1 row-start-1 block w-full rounded-md bg-neutral-100 placeholder:text-neutral-500 dark:bg-white/5 py-1.5 pr-3 pl-10 text-base dark:text-white outline-1 -outline-offset-1 outline-white/10 focus:outline-2 focus:-outline-offset-2 focus:outline-neutral-500 sm:pl-9 sm:text-sm/6 ${ errors && errors.password ? "border border-red-500 outline-1 -outline-offset-1 outline-red-500 focus:outline-2 focus:-outline-offset-2 focus:outline-red-500" : "" }`}
                         { ...register("password", { required: t("register_form_password_required"), minLength: { value: 8, message: t("register_form_password_minlength") } }) }
                     />
                     { errors.password && <WarningCircleIcon aria-hidden="true" className="pointer-events-none absolute right-10 top-1/2 -translate-y-1/2 size-4 text-red-500 dark:text-red-400" /> }
@@ -76,7 +78,7 @@ export default function LoginForm() {
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 transition-colors"
                     >
-                        {showPassword ? <EyeSlashIcon className="size-4" /> : <EyeIcon className="size-4" />}
+                        {showPassword ? <EyeSlashIcon className="size-4 text-neutral-700 dark:text-neutral-300" /> : <EyeIcon className="size-4 text-neutral-700 dark:text-neutral-300" />}
                     </button>
                 </div>
                 { errors.password && <ErrorMessage>{ errors.password.message }</ErrorMessage> }
@@ -84,7 +86,7 @@ export default function LoginForm() {
 
             <button
                 type="submit"
-                className="text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm mt-5  transition-colors ease-in-out duration-300 flex items-center justify-center gap-3 hover:cursor-pointer bg-neutral-700 dark:bg-white hover:bg-neutral-800 dark:hover:bg-white"
+                className="text-white dark:text-neutral-950 w-full py-3 rounded-lg text-sm mt-5  transition-colors ease-in-out duration-300 flex items-center justify-center gap-3 hover:cursor-pointer bg-neutral-950 dark:bg-white hover:bg-neutral-700 dark:hover:bg-white"
             >
                 { isPending && <Spinner /> }
                 { t("sign_in") }
