@@ -13,3 +13,11 @@ export type VerifyAccountForm = {
     email: string;
     token: string;
 }
+
+export type ForgotPasswordForm = Pick<RegisterForm, "email">
+
+export type ResetPasswordForm = {
+    newPassword: string;
+    confirmPassword: string;
+    token: string;
+}

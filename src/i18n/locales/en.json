@@ -7,6 +7,7 @@
   "invalid_data_format": "Invalid data format",
   "session_expired": "Session expired",
   "logout_error": "Error during logout",
+  "verify_token_error": "Error verifying token",
 
   "start_title": "Welcome to Raíz",
   "start_subtitle": "Your trusted partner in real estate",
@@ -55,6 +56,23 @@
   "login_form_forgot_password": "Forgot password?",
   "login_form_have_account": "Don't have an account?",
   "login_form_create_account": "Create one",
-  "login_success": "Welcome back!",
-  "login_error": "Error logging into your account"
+  "login_error": "Error logging into your account",
+
+  "forgot_password_title": "Forgot your password?",
+  "forgot_password_subtitle": "No worries, we'll send you reset instructions",
+  "forgot_password_button": "Send reset link",
+  "forgot_password_back_to_sign_in": "Back to sign in",
+  "forgot_password_success_message_1": "We've sent an email to",
+  "forgot_password_success_message_2": "with a link to reset your password",
+  "forgot_password_resend_email": "Didn't received the email?",
+  "forgot_password_try_again": "Try again",
+  "forgot_password_error": "Error reseting password",
+
+  "reset_password_title": "Reset your password",
+  "reset_password_subtitle": "Enter your new password below",
+  "reset_password_form_new_password_label": "New Password",
+  "reset_passwod_form_confirm_password_label": "Confirm Password",
+  "reset_password_not_match": "Passwords do not match",
+  "reset_password_form_button": "Reset password",
+  "reset_password_error": "Error reseting your password"
 }
