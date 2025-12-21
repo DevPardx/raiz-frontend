@@ -8,23 +8,27 @@ export default function StartView() {
         <>
             <div className="space-y-7">
                 <h1 className="text-4xl font-semibold text-center">{ t("start_title") }</h1>
-                <p className="text-md text-neutral-500 black:text-neutral-400">{ t("start_subtitle") }</p>
+                <p className="text-md text-neutral-500 black:text-neutral-400 text-center">{ t("start_subtitle") }</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-7">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
                 <Link
                     to="/login"
-                    className="px-8 py-3 border border-neutral-300 dark:border-none dark:bg-white text-neutral-900 rounded-lg font-medium hover:bg-neutral-200 transition-colors"
+                    className="px-8 py-3 border border-neutral-300 dark:border-none dark:bg-white text-neutral-900 rounded-lg font-medium hover:bg-neutral-200 transition-colors text-center"
                 >
                     { t("sign_in") }
                 </Link>
                 <Link
                     to="/register"
-                    className="px-8 py-3 bg-neutral-800 text-white border border-neutral-700 rounded-lg font-medium hover:bg-neutral-700 transition-colors"
+                    className="px-8 py-3 bg-neutral-800 text-white border border-neutral-700 rounded-lg font-medium hover:bg-neutral-700 transition-colors text-center"
                 >
                     { t("create_account") }
                 </Link>
             </div>
+
+            <Link className="text-sm underline text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-300 text-center mt-10 transition-colors ease-in-out duration-300" to="/">
+               Continue as guest 
+            </Link>
         </>
     );
 }
