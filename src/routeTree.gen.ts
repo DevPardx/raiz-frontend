@@ -9,8 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as authRouteRouteImport } from './routes/(auth)/route'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
+import { Route as LayoutSettingsRouteImport } from './routes/_layout/settings'
+import { Route as LayoutFavoritesRouteImport } from './routes/_layout/favorites'
+import { Route as LayoutChatsRouteImport } from './routes/_layout/chats'
 import { Route as authVerifyAccountRouteImport } from './routes/(auth)/verify-account'
 import { Route as authStartRouteImport } from './routes/(auth)/start'
 import { Route as authRegisterRouteImport } from './routes/(auth)/register'
@@ -18,14 +22,33 @@ import { Route as authLoginRouteImport } from './routes/(auth)/login'
 import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-password'
 import { Route as authResetPasswordTokenRouteImport } from './routes/(auth)/reset-password/$token'
 
+const LayoutRoute = LayoutRouteImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const authRouteRoute = authRouteRouteImport.update({
   id: '/(auth)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const LayoutIndexRoute = LayoutIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutSettingsRoute = LayoutSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutFavoritesRoute = LayoutFavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutChatsRoute = LayoutChatsRouteImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => LayoutRoute,
 } as any)
 const authVerifyAccountRoute = authVerifyAccountRouteImport.update({
   id: '/verify-account',
@@ -59,72 +82,99 @@ const authResetPasswordTokenRoute = authResetPasswordTokenRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/forgot-password': typeof authForgotPasswordRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/start': typeof authStartRoute
   '/verify-account': typeof authVerifyAccountRoute
+  '/chats': typeof LayoutChatsRoute
+  '/favorites': typeof LayoutFavoritesRoute
+  '/settings': typeof LayoutSettingsRoute
+  '/': typeof LayoutIndexRoute
   '/reset-password/$token': typeof authResetPasswordTokenRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/forgot-password': typeof authForgotPasswordRoute
   '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/start': typeof authStartRoute
   '/verify-account': typeof authVerifyAccountRoute
+  '/chats': typeof LayoutChatsRoute
+  '/favorites': typeof LayoutFavoritesRoute
+  '/settings': typeof LayoutSettingsRoute
+  '/': typeof LayoutIndexRoute
   '/reset-password/$token': typeof authResetPasswordTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/(auth)': typeof authRouteRouteWithChildren
+  '/_layout': typeof LayoutRouteWithChildren
   '/(auth)/forgot-password': typeof authForgotPasswordRoute
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/register': typeof authRegisterRoute
   '/(auth)/start': typeof authStartRoute
   '/(auth)/verify-account': typeof authVerifyAccountRoute
+  '/_layout/chats': typeof LayoutChatsRoute
+  '/_layout/favorites': typeof LayoutFavoritesRoute
+  '/_layout/settings': typeof LayoutSettingsRoute
+  '/_layout/': typeof LayoutIndexRoute
   '/(auth)/reset-password/$token': typeof authResetPasswordTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/forgot-password'
     | '/login'
     | '/register'
     | '/start'
     | '/verify-account'
+    | '/chats'
+    | '/favorites'
+    | '/settings'
+    | '/'
     | '/reset-password/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/forgot-password'
     | '/login'
     | '/register'
     | '/start'
     | '/verify-account'
+    | '/chats'
+    | '/favorites'
+    | '/settings'
+    | '/'
     | '/reset-password/$token'
   id:
     | '__root__'
-    | '/'
     | '/(auth)'
+    | '/_layout'
     | '/(auth)/forgot-password'
     | '/(auth)/login'
     | '/(auth)/register'
     | '/(auth)/start'
     | '/(auth)/verify-account'
+    | '/_layout/chats'
+    | '/_layout/favorites'
+    | '/_layout/settings'
+    | '/_layout/'
     | '/(auth)/reset-password/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   authRouteRoute: typeof authRouteRouteWithChildren
+  LayoutRoute: typeof LayoutRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(auth)': {
       id: '/(auth)'
       path: ''
@@ -132,12 +182,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_layout/': {
+      id: '/_layout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof LayoutIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/settings': {
+      id: '/_layout/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof LayoutSettingsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/favorites': {
+      id: '/_layout/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof LayoutFavoritesRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/chats': {
+      id: '/_layout/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof LayoutChatsRouteImport
+      parentRoute: typeof LayoutRoute
     }
     '/(auth)/verify-account': {
       id: '/(auth)/verify-account'
@@ -206,9 +277,26 @@ const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
   authRouteRouteChildren,
 )
 
+interface LayoutRouteChildren {
+  LayoutChatsRoute: typeof LayoutChatsRoute
+  LayoutFavoritesRoute: typeof LayoutFavoritesRoute
+  LayoutSettingsRoute: typeof LayoutSettingsRoute
+  LayoutIndexRoute: typeof LayoutIndexRoute
+}
+
+const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutChatsRoute: LayoutChatsRoute,
+  LayoutFavoritesRoute: LayoutFavoritesRoute,
+  LayoutSettingsRoute: LayoutSettingsRoute,
+  LayoutIndexRoute: LayoutIndexRoute,
+}
+
+const LayoutRouteWithChildren =
+  LayoutRoute._addFileChildren(LayoutRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   authRouteRoute: authRouteRouteWithChildren,
+  LayoutRoute: LayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
