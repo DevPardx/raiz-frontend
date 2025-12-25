@@ -74,5 +74,9 @@
   "reset_passwod_form_confirm_password_label": "Confirm Password",
   "reset_password_not_match": "Passwords do not match",
   "reset_password_form_button": "Reset password",
-  "reset_password_error": "Error reseting your password"
+  "reset_password_error": "Error reseting your password",
+
+  "home_title": "Discover Properties",
+  "home_subtitle": "Find your perfect property in El Salvador",
+  "properties_error": "Error retrieving properties"  
 }
