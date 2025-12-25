@@ -3,11 +3,12 @@
   "create_account": "Create Account",
   "email": "Email",
   "password": "Password",
-
+  
   "invalid_data_format": "Invalid data format",
   "session_expired": "Session expired",
   "logout_error": "Error during logout",
   "verify_token_error": "Error verifying token",
+  "properties_error": "Error retrieving properties",
 
   "start_title": "Welcome to Raíz",
   "start_subtitle": "Your trusted partner in real estate",
@@ -78,5 +79,10 @@
 
   "home_title": "Discover Properties",
   "home_subtitle": "Find your perfect property in El Salvador",
-  "properties_error": "Error retrieving properties"  
+
+  "favorites_title": "Favorites",
+  "favorites_subtitle": "Properties you've saved for later",
+
+  "settings_title": "Settings",
+  "settings_subtitle": "Manage your account preferences"
 }

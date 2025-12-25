@@ -1,3 +1,4 @@
+import FavoritesView from '@/views/app/FavoritesView'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/favorites')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/_layout/favorites')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/favorites"!</div>
+  return <FavoritesView />
 }

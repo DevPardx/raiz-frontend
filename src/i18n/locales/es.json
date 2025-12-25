@@ -3,10 +3,11 @@
   "create_account": "Crear Cuenta",
   "email": "Correo",
   "password": "Contraseña",
-
+  
   "invalid_data_format": "Formato de datos no válido",
   "session_expired": "La sesión ha expirado",
   "logout_error": "Error al cerrar sesión",
+  "properties_error": "Error al obtener las propiedades",
   "verify_token_error": "Error al validar token",
 
   "start_title": "Bienvenido a Raíz",
@@ -78,6 +79,11 @@
 
   "home_title": "Descubre propiedades",
   "home_subtitle": "Encuentra la propiedad perfecta en El Salvador",
-  "properties_error": "Error al obtener las propiedades"
+
+  "favorites_title": "Favoritos",
+  "favorites_subtitle": "Propiedades que has guardado para más tarde",
+
+  "settings_title": "Ajustes",
+  "settings_subtitle": "Administra las preferencias de tu cuenta"
 }
  
