@@ -1,3 +1,4 @@
+import HomeView from '@/views/home/HomeView'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/_layout/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/"!</div>
+  return <HomeView />
 }

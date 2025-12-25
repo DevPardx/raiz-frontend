@@ -74,6 +74,10 @@
   "reset_passwod_form_confirm_password_label": "Confirmar Contraseña",
   "reset_password_not_match": "Las contraseñas no coinciden",
   "reset_password_form_button": "Reestablecer contraseña",
-  "reset_password_error": "Error al reestablecer contraseña"
+  "reset_password_error": "Error al reestablecer contraseña",
+
+  "home_title": "Descubre propiedades",
+  "home_subtitle": "Encuentra la propiedad perfecta en El Salvador",
+  "properties_error": "Error al obtener las propiedades"
 }
  
