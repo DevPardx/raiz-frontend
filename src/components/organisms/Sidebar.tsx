@@ -75,12 +75,12 @@ export function Sidebar() {
                 </nav>
 
                 <div className="p-2 border-t border-neutral-400 dark:border-neutral-800 space-y-1">
-                    <div className={cn("flex items-center gap-3 px-3 py-2.5", isExpanded ? "justify-start" : "justify-center")}>
+                    <div className="flex items-center gap-3 px-3 py-2.5">
                         <ThemeToggle />
                         <span
                             className={cn(
                                 "whitespace-nowrap transition-opacity duration-300",
-                                isExpanded ? "opacity-100" : "hidden",
+                                isExpanded ? "opacity-100" : "opacity-0",
                             )}
                         >
                             Theme
