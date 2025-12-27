@@ -1,5 +1,12 @@
 export type Role = "buyer" | "seller";
 
+export type User = {
+    id: string;
+    email: string;
+    name: string;
+    role: Role;
+}
+
 export type RegisterForm = {
     name: string;
     email: string;

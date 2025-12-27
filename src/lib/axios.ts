@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useAuthStore } from "@/store/authStore";
 
 export const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -31,7 +32,8 @@ api.interceptors.response.use(
             error.response?.status === 401 &&
             !originalRequest._retry &&
             !originalRequest.url?.includes("/auth/refresh") &&
-            !originalRequest.url?.includes("/auth/login")
+            !originalRequest.url?.includes("/auth/login") &&
+            !originalRequest.url?.includes("/get-user")
         ) {
             if (isRefreshing) {
                 return new Promise((resolve, reject) => {
@@ -52,6 +54,9 @@ api.interceptors.response.use(
                 return api(originalRequest);
             } catch (refreshError) {
                 processQueue(new Error("Session expired"));
+
+                const { clearAuth } = useAuthStore.getState();
+                clearAuth();
 
                 localStorage.clear();
 

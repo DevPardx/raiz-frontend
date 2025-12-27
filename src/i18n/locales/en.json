@@ -9,6 +9,7 @@
   "logout_error": "Error during logout",
   "verify_token_error": "Error verifying token",
   "properties_error": "Error retrieving properties",
+  "get_user_error": "Error getting user",
 
   "start_title": "Welcome to Raíz",
   "start_subtitle": "Your trusted partner in real estate",

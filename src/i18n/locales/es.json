@@ -9,6 +9,7 @@
   "logout_error": "Error al cerrar sesión",
   "properties_error": "Error al obtener las propiedades",
   "verify_token_error": "Error al validar token",
+  "get_user_error": "Error al obtener usuario",
 
   "start_title": "Bienvenido a Raíz",
   "start_subtitle": "Tu socio de confianza en el sector inmobiliario",

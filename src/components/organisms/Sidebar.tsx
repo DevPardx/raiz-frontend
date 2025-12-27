@@ -3,6 +3,8 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { HouseLineIcon, HeartStraightIcon, ChatCircleIcon, GearIcon, SignOutIcon } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "../atoms/ThemeToggle";
+import { useAuthStore } from "@/store/authStore";
+import { useLogoutMutation } from "@/hooks/mutations/useAuthMutations";
 
 const navItems = [
     { icon: HouseLineIcon, label: "Home", href: "/" },
@@ -15,6 +17,9 @@ export function Sidebar() {
     const [isExpanded, setIsExpanded] = useState(false);
     const location = useLocation();
     const pathname = location.pathname;
+
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+    const { mutate: handleLogout } = useLogoutMutation();
 
     return (
         <>
@@ -86,20 +91,22 @@ export function Sidebar() {
                             Theme
                         </span>
                     </div>
-                    <Link
-                        to="/login"
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-colors"
-                    >
-                        <SignOutIcon className="size-5 shrink-0" />
-                        <span
-                            className={cn(
-                                "whitespace-nowrap transition-opacity duration-300",
-                                isExpanded ? "opacity-100" : "opacity-0",
-                            )}
+                    {isAuthenticated && (
+                        <button
+                            onClick={() => handleLogout()}
+                            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-500/10 hover:text-red-500 transition-colors"
                         >
-                            Logout
-                        </span>
-                    </Link>
+                            <SignOutIcon className="size-5 shrink-0" />
+                            <span
+                                className={cn(
+                                    "whitespace-nowrap transition-opacity duration-300",
+                                    isExpanded ? "opacity-100" : "opacity-0",
+                                )}
+                            >
+                                Logout
+                            </span>
+                        </button>
+                    )}
                 </div>
             </aside>
 
