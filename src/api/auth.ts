@@ -1,7 +1,7 @@
 import { isAxiosError } from "axios";
 import i18n from "@/i18n/config";
 import { api } from "@/lib/axios";
-import type { ForgotPasswordForm, LoginForm, RegisterForm, ResetPasswordForm, VerifyAccountForm } from "@/types";
+import type { ForgotPasswordForm, LoginForm, RegisterForm, ResetPasswordForm, VerifyAccountForm, User } from "@/types";
 
 export const register = async (formData: RegisterForm) => {
     try{
@@ -125,5 +125,17 @@ export const resetPassword = async (formData: ResetPasswordForm) => {
         }
 
         throw new Error(i18n.t("verify_token_error"));
+    }
+};
+
+export const getCurrentUser = async (): Promise<User> => {
+    try {
+        const { data } = await api.get<User>("/auth/get-user");
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response?.data) {
+            throw new Error(error.response.data.error || i18n.t("get_user_error"));
+        }
+        throw new Error(i18n.t("get_user_error"));
     }
 };
